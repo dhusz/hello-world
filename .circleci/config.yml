@@ -12,7 +12,7 @@ workflows:
   hello-world-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test:
+      - node/test
 
 jobs:
   node/test:
@@ -21,8 +21,8 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: Install Dependencies
-        command: npm install
+          name: Install Dependencies
+          command: npm install
       - run:
-        name: Test Code
-        command: npm run test
+          name: Test Code
+          command: npm run test
