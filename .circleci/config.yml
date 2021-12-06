@@ -26,3 +26,5 @@ jobs:
       - run:
           name: Test Code
           command: npm run test
+      - store-test-results:
+          path: test-results
