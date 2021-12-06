@@ -13,20 +13,21 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - node/test
+      - myStuff
 
 jobs:
-  node/test:
+  myStuff:
     docker:
       - image: cimg/node:14.13.0
     working_directory: /root/project
     steps:
-      - checkout
       - run:
           name: Echo Step
           command: |
             echo 'where does npm install take place?'
             ls -a
-            pwd           
+            pwd  
+      - checkout         
       - run: 
           name: Install React Dependencies
           command: npm install
