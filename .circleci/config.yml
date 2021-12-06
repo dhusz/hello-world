@@ -18,6 +18,7 @@ jobs:
   node/test:
     docker:
       - image: cimg/node:14.13.0
+    working-directory: /tmp
     steps:
       - checkout
       - run:
@@ -25,13 +26,15 @@ jobs:
           command: |
             echo 'where does npm install take place?'
             ls -a
-            mkdir -p ~/test-results
+           
       - run: 
           name: Install Dependencies
           command: npm install
       - run:
           name: Test Code
-          command: npm run test
+          command: |
+           mkdir -p test-results
+           npm run test
       - store-artifacts:
         path: myArtifacts
         destination: myPrefix
