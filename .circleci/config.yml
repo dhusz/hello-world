@@ -17,8 +17,8 @@ workflows:
 
 jobs:
   myStuff:
-    #docker:
-    #  - image: cimg/node:14.13.0
+    docker:
+      - image: cimg/node:14.13.0
     steps:
       - run:
           name: Echo Step
