@@ -20,6 +20,11 @@ jobs:
       - image: cimg/node:14.13.0
     steps:
       - checkout
+      - run:
+          name: Echo Step
+          command: |
+            echo 'where does npm install take place?'
+            ls -a
       - run: 
           name: Install Dependencies
           command: npm install
