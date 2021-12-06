@@ -12,20 +12,21 @@ workflows:
   hello-world-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test
       - myStuff
 
 jobs:
   myStuff:
     docker:
-      - image: cimg/node:14.13.0
+      - image: cimg/node:17.2.0-browsers
     steps:
       - run:
           name: Echo Step
           command: |
             echo 'How do I get this second job to run in the environment of the first one?'
             ls -al
-            pwd  
+            pwd
+            node -v
+            npm -v  
       - checkout         
       - run: 
           name: Install React Dependencies
