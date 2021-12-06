@@ -18,7 +18,7 @@ jobs:
   node/test:
     docker:
       - image: cimg/node:14.13.0
-    working-directory: /tmp
+    working_directory: /tmp
     steps:
       - checkout
       - run:
