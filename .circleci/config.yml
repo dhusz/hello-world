@@ -35,8 +35,8 @@ jobs:
           command: |
            mkdir -p test-results
            npm run test
-      - store-artifacts:
+      - store_artifacts:
           path: myArtifacts
           destination: myPrefix
-      - store-test-results:
+      - store_test_results:
           path: test-results
