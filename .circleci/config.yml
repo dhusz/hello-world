@@ -17,15 +17,14 @@ workflows:
 
 jobs:
   myStuff:
-    docker:
-      - image: cimg/node:14.13.0
-    working_directory: /root/project
+    #docker:
+    #  - image: cimg/node:14.13.0
     steps:
       - run:
           name: Echo Step
           command: |
-            echo 'where does npm install take place?'
-            ls -a
+            echo 'How do I get this second job to run in the environment of the first one?'
+            ls -al
             pwd  
       - checkout         
       - run: 
