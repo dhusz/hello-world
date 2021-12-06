@@ -35,7 +35,7 @@ jobs:
           name: Test My Code
           command: |
            mkdir -p test-results
-           npm run test
+           npm run test > test-results/testresults.xml
       - store_artifacts:
           path: myArtifacts
           destination: myPrefix
