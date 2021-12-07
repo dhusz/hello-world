@@ -26,8 +26,6 @@ workflows:
             - waitForApproval
 jobs:
   myStuff:
-    docker:
-      - image: cimg/node:17.2.0-browsers
     steps:
       - run:
           name: Echo Step
@@ -52,8 +50,6 @@ jobs:
       - store_test_results:
           path: test-results
   complete:
-    docker:
-      - image: cimg/node:17.2.0-browsers
     steps:
       - run:
           name: Dan's Approval
