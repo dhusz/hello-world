@@ -15,13 +15,15 @@ workflows:
     jobs:
       - node/test
       - myStuff:
-          requires: node/test
+          requires: 
+            - node/test
       - waitForApproval:
           type: approval
           requires: 
               - myStuff
       - complete:
-          requires: waitForApproval
+          requires: 
+            - waitForApproval
 jobs:
   myStuff:
     docker:
@@ -54,6 +56,6 @@ jobs:
       - image: cimg/node:17.2.0-browsers
     steps:
       - run:
-        name: Dan's Approval
-        command: |
+          name: Dan's Approval
+          command: |
             echo 'Approved?'
