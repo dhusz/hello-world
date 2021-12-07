@@ -4,7 +4,7 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  node: circleci/node@4.7
+  node: circleci/node@4.9.0
 
 executors:
   my-executor:
@@ -15,6 +15,8 @@ jobs:
   myStuff:
     executor: my-executor
     steps:
+      - checkout
+      - node/install
       - run:
           name: Echo Step
           command: |
@@ -24,9 +26,6 @@ jobs:
             node -v
             npm -v  
       - checkout         
-      - run: 
-          name: Install React Dependencies
-          command: npm install
       - run:
           name: Test My Code
           command: |
@@ -52,10 +51,9 @@ workflows:
   hello-world-workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test
+      - node/test:
+          test-results-for: jest
       - myStuff:
-          requires: 
-            - node/test
       - waitForApproval:
           type: approval
           requires: 
