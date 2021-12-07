@@ -16,9 +16,10 @@ jobs:
     executor: my-executor
     steps:
       - checkout
-      - node/install
+      - node/install:
           node-version: 14.17.3
           npm-version: 6.14.13
+      - node/install-packages
       - run:
           name: Echo Step
           command: |
