@@ -17,6 +17,8 @@ jobs:
     steps:
       - checkout
       - node/install
+          node-version: 14.17.3
+          npm-version: 6.14.13
       - run:
           name: Echo Step
           command: |
@@ -24,8 +26,7 @@ jobs:
             ls -al
             pwd
             node -v
-            npm -v  
-      - checkout         
+            npm -v           
       - run:
           name: Test My Code
           command: |
