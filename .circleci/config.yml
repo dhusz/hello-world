@@ -51,7 +51,7 @@ jobs:
           destination: myPrefix
       - store_test_results:
           path: test-results
-  waitForApproval:
+  complete:
     docker:
       - image: cimg/node:17.2.0-browsers
     steps:
