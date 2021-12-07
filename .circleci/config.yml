@@ -53,7 +53,7 @@ workflows:
     jobs:
       - node/test:
           test-results-for: jest
-      - myStuff:
+      - myStuff
       - waitForApproval:
           type: approval
           requires: 
