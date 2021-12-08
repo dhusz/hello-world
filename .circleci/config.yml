@@ -67,7 +67,7 @@ workflows:
               branches:
                   only: 
                     - main
-      - myStuff
+      - myStuff:
           filters:
               branches:
                   only: 
