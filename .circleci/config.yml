@@ -59,7 +59,10 @@ workflows:
                   only: 
                     - develop
 
-  hello-world-test-deploy: 
+  hello-world-test-deploy:
+    when:
+      not:
+        equal: [ scheduled_pipeline, << pipeline.trigger_source >> ] 
     jobs:
       - node/test:
           test-results-for: jest
