@@ -68,6 +68,10 @@ workflows:
                   only: 
                     - main
       - myStuff
+          filters:
+              branches:
+                  only: 
+                    - main
       - waitForApproval:
           type: approval
           requires: 
